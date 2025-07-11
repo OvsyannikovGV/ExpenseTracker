@@ -1,17 +1,16 @@
-#include <chrono>
 #include <nlohmann/json.hpp>
 using json = nlohmann::json;
 
 class Expense {
 private:
 	int id;
-	std::chrono::year_month_day date;
+	std::string date;
 	std::string desc;
 	long amount;
 public:
 	Expense(
 		int arg_id,
-		std::chrono::year_month_day arg_date,
+		std::string arg_date,
 		std::string arg_desc,
 		long arg_amount
 	) :	id(arg_id),
@@ -31,7 +30,7 @@ public:
 	static Expense from_json(const json& json_expense) {
 		return {
 			json_expense.at("ID").get<int>(),
-			json_expense.at("Date").get<std::chrono::year_month_day>(),
+			json_expense.at("Date").get<std::string>(),
 			json_expense.at("Description").get<std::string>(),
 			json_expense.at("Amount").get<long>()
 		};
