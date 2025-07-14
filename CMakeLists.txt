@@ -12,7 +12,11 @@ else()
 	add_compile_options(-Wall -Wextra -Wpedantic -Werror)
 endif()
 
+find_package(unofficial-getopt-win32 REQUIRED) # whyyyyyyyyyyyyyyyyyyyyyyyy
+    
 add_executable(${EXECUTABLE_NAME} ExpenseTracker/main.cpp)
+
+target_link_libraries(${EXECUTABLE_NAME} PRIVATE unofficial::getopt-win32::getopt) # sooooooooooooo unintuitive
 
 target_include_directories(${EXECUTABLE_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 

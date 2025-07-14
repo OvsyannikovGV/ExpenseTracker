@@ -1,4 +1,5 @@
 #include <iostream>
+#include <getopt.h>
 #include <vector>
 #include <fstream>
 #include <ExpenseTracker/expense.hpp>
